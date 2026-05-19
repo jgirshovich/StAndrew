@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saint Andrew Catholic School – Homepage Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B3A6B;
+      --navy-dark: #112650;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --cream: #FDF8F0;
+      --white: #FFFFFF;
+      --gray-light: #F4F6FA;
+      --gray-mid: #8A9AB5;
+      --gray-text: #4A5568;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Source Sans 3', system-ui, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--navy-dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── UTILITY BAR ─────────────────────────────────────────────── */
+    .utility-bar {
+      background: var(--navy-dark);
+      padding: 6px 0;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .utility-bar .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .utility-bar a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      margin-left: 20px;
+      transition: color .2s;
+    }
+
+    .utility-bar a:hover {
+      color: var(--gold-light);
+    }
+
+    .utility-links {
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── HEADER / NAV ────────────────────────────────────────────── */
+    header {
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(27, 58, 107, .12);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-crest {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-crest svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    nav a {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      transition: all .2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 12px;
+      right: 12px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform .2s;
+    }
+
+    nav a:hover {
+      color: var(--navy-dark);
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-dark) !important;
+      padding: 9px 20px !important;
+      border-radius: 6px;
+      font-weight: 700 !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-light) !important;
+    }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 88vh;
+      min-height: 560px;
+      max-height: 820px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0d1f3c 0%, #1B3A6B 40%, #2a5298 70%, #1a3a6b 100%);
+    }
+
+    /* Decorative cross pattern */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(201, 168, 76, .15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, .05) 0%, transparent 50%);
+    }
+
+    .hero-cross {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: .06;
+      width: 320px;
+      height: 420px;
+    }
+
+    .hero-cross::before {
+      content: '✝';
+      font-size: 380px;
+      color: white;
+      line-height: 1;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      animation: heroFadeIn .9s ease both;
+    }
+
+    @keyframes heroFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(201, 168, 76, .18);
+      border: 1px solid rgba(201, 168, 76, .4);
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+
+    .hero-eyebrow::before {
+      content: '✝';
+      font-size: 10px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      max-width: 700px;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .hero-motto {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: rgba(255, 255, 255, .65);
+      margin-bottom: 28px;
+      letter-spacing: .02em;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .8);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: all .2s;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(201, 168, 76, .4);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201, 168, 76, .5);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, .1);
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, .4);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: all .2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, .2);
+      border-color: rgba(255, 255, 255, .7);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, .4);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: bounce 2s ease infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0)
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(6px)
+      }
+    }
+
+    .hero-scroll::after {
+      content: '▼';
+      font-size: 9px;
+    }
+
+    /* ── QUICK LINKS ─────────────────────────────────────────────── */
+    .quick-links {
+      background: var(--navy);
+      padding: 0;
+    }
+
+    .quick-links-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .quick-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 24px 16px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, .75);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-right: 1px solid rgba(255, 255, 255, .08);
+      transition: all .2s;
+    }
+
+    .quick-link:last-child {
+      border-right: none;
+    }
+
+    .quick-link:hover {
+      background: rgba(255, 255, 255, .06);
+      color: var(--gold-light);
+    }
+
+    .quick-link .ql-icon {
+      font-size: 22px;
+      margin-bottom: 2px;
+    }
+
+    /* ── WELCOME SECTION ─────────────────────────────────────────── */
+    .section {
+      padding: 88px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 3px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .welcome-text p {
+      font-size: 16px;
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .welcome-text .mission-quote {
+      border-left: 4px solid var(--gold);
+      padding: 16px 24px;
+      background: var(--gray-light);
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--navy);
+      margin: 28px 0;
+    }
+
+    .welcome-img {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--navy) 0%, #2a5298 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .welcome-img-placeholder {
+      color: rgba(255, 255, 255, .3);
+      font-size: 80px;
+      text-align: center;
+    }
+
+    .welcome-img-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .6));
+      padding: 40px 24px 20px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .8);
+      font-style: italic;
+    }
+
+    .welcome-img::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      opacity: .3;
+    }
+
+    /* ── PILLARS ─────────────────────────────────────────────────── */
+    .pillars {
+      background: var(--navy);
+      padding: 80px 24px;
+    }
+
+    .pillars-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pillars .section-tag {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .pillars .section-title {
+      color: var(--white);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .pillar-card {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 12px;
+      padding: 36px 28px;
+      transition: all .3s;
+    }
+
+    .pillar-card:hover {
+      background: rgba(255, 255, 255, .1);
+      transform: translateY(-4px);
+      border-color: rgba(201, 168, 76, .4);
+    }
+
+    .pillar-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, .15);
+      border: 1.5px solid rgba(201, 168, 76, .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .pillar-desc {
+      font-size: 15px;
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.7;
+    }
+
+    /* ── GRADE BANDS ─────────────────────────────────────────────── */
+    .grades {
+      background: var(--cream);
+      padding: 80px 24px;
+    }
+
+    .grades-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grades-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .grade-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(27, 58, 107, .08);
+      transition: all .3s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .grade-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(27, 58, 107, .16);
+    }
+
+    .grade-card-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+    }
+
+    .grade-k3 {
+      background: linear-gradient(135deg, #E8F4FD, #BFD7F0);
+    }
+
+    .grade-lower {
+      background: linear-gradient(135deg, #FEF3E2, #F5D98B);
+    }
+
+    .grade-middle {
+      background: linear-gradient(135deg, #E8F0FE, #9AB5E8);
+    }
+
+    .grade-card-body {
+      padding: 24px;
+    }
+
+    .grade-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .grade-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .grade-desc {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.65;
+    }
+
+    .grade-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 2px;
+      transition: color .2s;
+    }
+
+    .grade-link:hover {
+      color: var(--gold);
+    }
+
+    /* ── NEWS & EVENTS ───────────────────────────────────────────── */
+    .news-events {
+      padding: 80px 24px;
+    }
+
+    .news-events-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ne-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(27, 58, 107, .08);
+      text-decoration: none;
+      color: inherit;
+      transition: all .2s;
+    }
+
+    .news-item:hover {
+      padding-left: 8px;
+    }
+
+    .news-date {
+      flex-shrink: 0;
+      width: 54px;
+      text-align: center;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 8px 6px;
+      align-self: flex-start;
+    }
+
+    .news-date-month {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gold-light);
+    }
+
+    .news-date-day {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .news-body {}
+
+    .news-tag {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .news-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .news-excerpt {
+      font-size: 13px;
+      color: var(--gray-text);
+      line-height: 1.6;
+    }
+
+    .events-card {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 28px;
+      color: var(--white);
+      align-self: flex-start;
+    }
+
+    .events-card h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .event-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .event-item:last-child {
+      border-bottom: none;
+    }
+
+    .event-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .event-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .event-name {
+      font-size: 14px;
+      color: rgba(255, 255, 255, .85);
+      line-height: 1.4;
+    }
+
+    .events-more {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      padding: 10px;
+      border: 1.5px solid rgba(201, 168, 76, .4);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .events-more:hover {
+      background: rgba(201, 168, 76, .1);
+      border-color: var(--gold-light);
+    }
+
+    /* ── ADMISSIONS CTA ──────────────────────────────────────────── */
+    .admissions-cta {
+      background: linear-gradient(135deg, var(--navy-dark) 0%, #1B3A6B 60%, #2a5298 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .admissions-cta::before {
+      content: '✝';
+      position: absolute;
+      font-size: 400px;
+      color: rgba(255, 255, 255, .03);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .admissions-cta-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .admissions-cta .section-tag {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .admissions-cta .section-title {
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .admissions-cta p {
+      color: rgba(255, 255, 255, .75);
+      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── STATS BAR ───────────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--gold);
+      padding: 48px 24px;
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--navy-dark);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(27, 38, 80, .7);
+      margin-top: 6px;
+    }
+
+    /* ── PARISH BAND ─────────────────────────────────────────────── */
+    .parish-band {
+      background: var(--gray-light);
+      padding: 56px 24px;
+    }
+
+    .parish-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .parish-text {
+      flex: 1;
+    }
+
+    .parish-text h2 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .parish-text p {
+      font-size: 15px;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    .parish-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .03em;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+
+    .parish-link:hover {
+      background: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255, 255, 255, .6);
+      padding: 64px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .logo-name {
+      color: var(--white);
+      font-size: 20px;
+      margin-bottom: 12px;
+      display: block;
+      font-family: var(--font-serif);
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, .6);
+      transition: all .2s;
+    }
+
+    .social-btn:hover {
+      background: var(--gold);
+      color: var(--navy-dark);
+      border-color: var(--gold);
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      padding-bottom: 10px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255, 255, 255, .55);
+      text-decoration: none;
+      padding: 4px 0;
+      transition: color .2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-address {
+      font-size: 13px;
+    }
+
+    .footer-address strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* ── MOCKUP BANNER ────────────────────────────────────────────── */
+    .mockup-banner {
+      background: linear-gradient(90deg, #2d1a47, #1a2d47);
+      color: white;
+      text-align: center;
+      padding: 12px 24px;
+      font-size: 13px;
+      font-family: var(--font-sans);
+    }
+
+    .mockup-banner strong {
+      color: #F0C060;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Mockup notice -->
+  <div class="mockup-banner">
+    <strong>⚡ Design Mockup</strong> — This is a proposed redesign concept for Saint Andrew Catholic School, prepared by
+    J &amp; K Design (John Girshovich · jgirsh@comporium.net)
+  </div>
+
+  <!-- Utility Bar -->
+  <div class="utility-bar">
+    <div class="inner">
+      <span>Saint Andrew Catholic School · Coral Springs, FL · (954) 753-1280</span>
+      <div class="utility-links">
+        <a href="#">Parish</a>
+        <a href="#">OPTION C Login</a>
+        <a href="#">Staff</a>
+        <a href="#">Employment</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <a class="logo-area" href="#">
+        <img src="https://www.standrewscatholicschool.com/wp-content/themes/standrew2011/images/header_logo.png"
+          alt="Saint Andrew Catholic School Logo" style="height: 54px; width: auto;" />
+        <div class="logo-text">
+          <span class="logo-name">Saint Andrew Catholic School</span>
+          <span class="logo-sub">First Called · Est. 1965 · Coral Springs, FL</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#">About</a>
+        <a href="#">Academics</a>
+        <a href="#">Student Life</a>
+        <a href="#">Community</a>
+        <a href="#">Parents</a>
+        <a href="#" class="nav-cta">Admissions</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-cross"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Faith · Learning · Service</div>
+      <h1>Where Every Child is<br><em>First Called</em> to Grow</h1>
+      <p class="hero-motto">Guided by the example of Saint Andrew, the first disciple called by Jesus</p>
+      <p class="hero-desc">
+        Saint Andrew Catholic School offers an exceptional Catholic education for students in grades K3–8,
+        rooted in faith, hope, and love — and a community where every child is known, nurtured, and challenged.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">Apply for 2026–27</a>
+        <a href="#" class="btn-ghost">Schedule a Visit</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- Quick Links -->
+  <div class="quick-links">
+    <div class="quick-links-inner">
+      <a href="#" class="quick-link"><span class="ql-icon">📅</span>School Calendar</a>
+      <a href="#" class="quick-link"><span class="ql-icon">🍽️</span>Lunch Menu</a>
+      <a href="#" class="quick-link"><span class="ql-icon">🔐</span>OPTION C Portal</a>
+      <a href="#" class="quick-link"><span class="ql-icon">📋</span>Supply Lists</a>
+      <a href="#" class="quick-link"><span class="ql-icon">📞</span>Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Welcome -->
+  <section class="section" style="background: var(--white);">
+    <div class="section-inner">
+      <div class="welcome-grid">
+        <div class="welcome-text">
+          <span class="section-tag">Welcome to Saint Andrew</span>
+          <h2 class="section-title">A Faith-Filled Community Where Students Thrive</h2>
+          <p>We are a parish school in the heart of Coral Springs, Florida, offering a full Catholic education from
+            Preschool through 8th Grade. Our students are known by name, loved by their teachers, and challenged to
+            become the people God created them to be.</p>
+          <blockquote class="mission-quote">
+            "Saint Andrew Catholic School prepares students in a spiritual, academic and nurturing environment to become
+            productive leaders rooted in the Catholic virtues of faith, hope, and love."
+          </blockquote>
+          <p>Our motto — <strong>First Called</strong> — reflects the example of Saint Andrew himself, the first
+            disciple to answer Christ's call. We invite every family to discover what that calling looks like for your
+            child.</p>
+          <a href="#" class="grade-link" style="margin-top: 24px;">Learn Our Story →</a>
+        </div>
+        <div class="welcome-img">
+          <div class="welcome-img-placeholder">🏫</div>
+          <div class="welcome-img-label">Saint Andrew Catholic School Campus · Coral Springs, FL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="pillars">
+    <div class="pillars-inner">
+      <span class="section-tag">Our Foundation</span>
+      <h2 class="section-title" style="color: var(--white);">Educating the Whole Child</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">✝️</div>
+          <h3 class="pillar-title">Faith Formation</h3>
+          <p class="pillar-desc">Rooted in the Catholic tradition and guided by the example of Saint Andrew, we nurture
+            each student's relationship with God through daily prayer, sacramental preparation, and service to others.
+          </p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">📚</div>
+          <h3 class="pillar-title">Academic Excellence</h3>
+          <p class="pillar-desc">Our rigorous, standards-aligned curriculum develops critical thinkers, creative
+            problem-solvers, and lifelong learners prepared for success in high school and beyond.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🤝</div>
+          <h3 class="pillar-title">Community & Character</h3>
+          <p class="pillar-desc">We partner with families to develop students of integrity — young people who lead with
+            compassion, serve their neighbors, and carry the values of faith, hope, and love into the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grade Bands -->
+  <section class="grades">
+    <div class="grades-inner">
+      <div style="text-align: center;">
+        <span class="section-tag">Academics</span>
+        <h2 class="section-title">Education from PreSchool Through 8th Grade</h2>
+      </div>
+      <div class="grades-grid">
+        <a href="#" class="grade-card">
+          <div class="grade-card-img grade-k3">🌱</div>
+          <div class="grade-card-body">
+            <div class="grade-label">Early Childhood</div>
+            <h3 class="grade-title">Preschool &amp; Pre-K</h3>
+            <p class="grade-desc">A loving, structured environment where our youngest learners discover the joy of
+              school, build foundational skills, and develop a lifelong love of learning.</p>
+            <span class="grade-link">Explore K3–PreK →</span>
+          </div>
+        </a>
+        <a href="#" class="grade-card">
+          <div class="grade-card-img grade-lower">🌟</div>
+          <div class="grade-card-body">
+            <div class="grade-label">Lower School</div>
+            <h3 class="grade-title">Kindergarten – Grade 4</h3>
+            <p class="grade-desc">Building confidence and curiosity through hands-on learning, strong literacy and math
+              foundations, and the development of faith and character in every subject.</p>
+            <span class="grade-link">Explore K–4 →</span>
+          </div>
+        </a>
+        <a href="#" class="grade-card">
+          <div class="grade-card-img grade-middle">🚀</div>
+          <div class="grade-card-body">
+            <div class="grade-label">Middle School</div>
+            <h3 class="grade-title">Grades 5 – 8</h3>
+            <p class="grade-desc">Challenging students to reach their academic and personal potential through a rigorous
+              curriculum, enrichment programs, athletics, and meaningful leadership opportunities.</p>
+            <span class="grade-link">Explore Grades 5–8 →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-number">K3–8</div>
+        <div class="stat-label">Grade Levels Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">55+</div>
+        <div class="stat-label">Years Serving Coral Springs</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Graduate Placement</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">Faith</div>
+        <div class="stat-label">at the Heart of All We Do</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- News & Events -->
+  <section class="news-events">
+    <div class="news-events-inner">
+      <span class="section-tag">News &amp; Events</span>
+      <h2 class="section-title">Staying Connected to Our Community</h2>
+      <div class="ne-grid">
+        <div class="news-list">
+          <a href="#" class="news-item">
+            <div class="news-date">
+              <div class="news-date-month">May</div>
+              <div class="news-date-day">6</div>
+            </div>
+            <div class="news-body">
+              <div class="news-tag">School Life</div>
+              <div class="news-title">School May Crowning — All Families Welcome</div>
+              <p class="news-excerpt">Join us following the 10:00 a.m. Mass as our students honor the Blessed Mother in
+                our annual May Crowning celebration.</p>
+            </div>
+          </a>
+          <a href="#" class="news-item">
+            <div class="news-date">
+              <div class="news-date-month">May</div>
+              <div class="news-date-day">4</div>
+            </div>
+            <div class="news-body">
+              <div class="news-tag">Announcements</div>
+              <div class="news-title">Teacher Appreciation Week — Thank You, Saint Andrew Faculty!</div>
+              <p class="news-excerpt">This week we celebrate the extraordinary dedication of our teachers and staff.
+                Learn how you can show your appreciation.</p>
+            </div>
+          </a>
+          <a href="#" class="news-item">
+            <div class="news-date">
+              <div class="news-date-month">May</div>
+              <div class="news-date-day">2</div>
+            </div>
+            <div class="news-body">
+              <div class="news-tag">Sacraments</div>
+              <div class="news-title">First Communion Celebration — 11:00 A.M. Mass</div>
+              <p class="news-excerpt">Our 2nd Grade students receive the Eucharist for the first time in a beautiful
+                Mass open to families and friends of the parish community.</p>
+            </div>
+          </a>
+          <a href="#"
+            style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:.03em;text-transform:uppercase;border-bottom:2px solid var(--gold);padding-bottom:2px;">See
+            All News →</a>
+        </div>
+
+        <div class="events-card">
+          <h3>Upcoming Events</h3>
+          <div class="event-item">
+            <div class="event-dot"></div>
+            <div>
+              <div class="event-date">May 8</div>
+              <div class="event-name">PreK–Grade 2 Mother's Day Celebration</div>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-dot"></div>
+            <div>
+              <div class="event-date">May 11</div>
+              <div class="event-name">NJHS Induction after 10:00 a.m. Mass</div>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-dot"></div>
+            <div>
+              <div class="event-date">May 20</div>
+              <div class="event-name">Torch and Medallion Ceremony</div>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-dot"></div>
+            <div>
+              <div class="event-date">May 21</div>
+              <div class="event-name">Grade 8 Adventure Day</div>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-dot"></div>
+            <div>
+              <div class="event-date">May 25</div>
+              <div class="event-name">Memorial Day — No School</div>
+            </div>
+          </div>
+          <div class="event-item">
+            <div class="event-dot"></div>
+            <div>
+              <div class="event-date">May 30</div>
+              <div class="event-name">Grade 8 Graduation Celebration Mass</div>
+            </div>
+          </div>
+          <a href="#" class="events-more">View Full Calendar →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admissions CTA -->
+  <section class="admissions-cta">
+    <div class="admissions-cta-inner">
+      <span class="section-tag">Admissions</span>
+      <h2 class="section-title">Registration Now Open for 2026–27</h2>
+      <p>We are currently accepting applications for grades K3–8 for the 2026–27 school year. We invite you to visit our
+        campus, meet our faculty, and discover why Saint Andrew families choose us year after year.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary">Apply Now</a>
+        <a href="#" class="btn-ghost">Schedule a Tour</a>
+        <a href="#" class="btn-ghost">Request Info</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parish Band -->
+  <div class="parish-band">
+    <div class="parish-inner">
+      <div class="parish-text">
+        <h2>✝ Saint Andrew Catholic Parish</h2>
+        <p>Saint Andrew Catholic School is a ministry of Saint Andrew Catholic Church. Our school and parish community
+          are deeply connected — sharing faith, sacraments, and a common mission to grow disciples of Christ.</p>
+      </div>
+      <a href="#" class="parish-link">Visit the Parish →</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-name">Saint Andrew Catholic School</span>
+        <p>A faith-filled parish community where students are known, nurtured, and challenged to grow — guided by our
+          motto, <em>First Called</em>.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">𝕏</a>
+          <a href="#" class="social-btn">📷</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">Mission & Values</a>
+        <a href="#">History</a>
+        <a href="#">Leadership</a>
+        <a href="#">Faculty &amp; Staff</a>
+        <a href="#">Accreditation</a>
+        <a href="#">Employment</a>
+      </div>
+      <div class="footer-col">
+        <h4>Academics</h4>
+        <a href="#">Preschool</a>
+        <a href="#">Lower School</a>
+        <a href="#">Middle School</a>
+        <a href="#">Special Programs</a>
+        <a href="#">Athletics</a>
+        <a href="#">Gallery</a>
+      </div>
+      <div class="footer-col">
+        <h4>Families</h4>
+        <a href="#">Admissions</a>
+        <a href="#">OPTION C Portal</a>
+        <a href="#">Lunch Menu</a>
+        <a href="#">Supply Lists</a>
+        <a href="#">Calendar</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-address">
+        <strong>Saint Andrew Catholic School</strong>
+        9990 NW 29th Street · Coral Springs, FL 33065 · (954) 753-1280
+      </div>
+      <span>© 2025 Saint Andrew Catholic School · All Rights Reserved</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

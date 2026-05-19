@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint Andrew Catholic School – Design Concept 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --slate: #454a58;
+    --burgundy: #9c3e46;
+    --red: #c0392b;
+    --cream: #faf8f5;
+    --gold: #c9a45a;
+    --dark: #1a1c22;
+    --mid: #6b6f7e;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    padding: 0 48px;
+    height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: transparent;
+    transition: background .3s, backdrop-filter .3s;
+  }
+  nav.scrolled {
+    background: rgba(26,28,34,0.96);
+    backdrop-filter: blur(16px);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-brand img { height: 56px; width: auto; object-fit: contain; }
+  .nav-brand-text { font-size: 16px; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+  .nav-brand-text span { font-weight: 300; }
+  .nav-menu { display: flex; gap: 2px; list-style: none; }
+  .nav-menu a {
+    display: block; padding: 8px 16px; font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.8); text-decoration: none; border-radius: 6px;
+    transition: background .2s, color .2s;
+  }
+  .nav-menu a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+  .nav-login { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; font-weight: 500; }
+  .nav-apply {
+    background: var(--burgundy); color: #fff;
+    padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    text-decoration: none; transition: background .2s, transform .15s;
+  }
+  .nav-apply:hover { background: var(--red); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    height: 100vh; position: relative;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #2d2f3a 0%, #1a1c22 40%, #3d1c1f 100%);
+  }
+  /* Animated geometric bg */
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(156,62,70,0.25) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(69,74,88,0.4) 0%, transparent 50%);
+  }
+  .hero-cross {
+    position: absolute; top: 50%; right: 10%; transform: translateY(-50%);
+    font-size: 320px; font-weight: 900; color: rgba(255,255,255,0.03);
+    font-family: 'Outfit', sans-serif; line-height: 1; user-select: none;
+    letter-spacing: -0.05em;
+  }
+  .hero-content {
+    position: relative; z-index: 10;
+    padding: 0 64px 80px;
+    max-width: 900px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,164,90,0.15); border: 1px solid rgba(201,164,90,0.3);
+    color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 32px;
+  }
+  .hero-badge::before { content: '✦'; font-size: 10px; }
+  .hero-h1 {
+    font-size: clamp(52px,8vw,110px);
+    font-weight: 800; line-height: 0.92;
+    color: #fff; letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hero-h1 .accent { color: var(--gold); display: block; font-style: italic; font-family: 'Lora', serif; font-weight: 600; font-size: 0.7em; }
+  .hero-sub {
+    font-size: 18px; color: rgba(255,255,255,0.65); max-width: 520px;
+    line-height: 1.6; margin-bottom: 40px; font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .btn-hero-primary {
+    background: var(--burgundy); color: #fff;
+    padding: 16px 36px; border-radius: 10px; font-size: 16px; font-weight: 600;
+    text-decoration: none; letter-spacing: -0.01em;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 24px rgba(156,62,70,0.4);
+  }
+  .btn-hero-primary:hover { background: var(--red); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(156,62,70,0.5); }
+  .btn-hero-secondary {
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.8); font-size: 15px; font-weight: 500;
+    text-decoration: none; transition: color .2s;
+  }
+  .btn-hero-secondary:hover { color: #fff; }
+  .play-icon {
+    width: 46px; height: 46px; border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-hero-secondary:hover .play-icon { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+  .play-icon::after { content: ''; border: 6px solid transparent; border-left: 10px solid #fff; margin-left: 3px; }
+  .hero-scroll-hint {
+    position: absolute; bottom: 30px; right: 48px; z-index: 10;
+    display: flex; align-items: center; gap: 12px;
+    color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; writing-mode: vertical-rl;
+  }
+
+  /* STATS RIBBON */
+  .stats-ribbon {
+    background: var(--dark);
+    display: grid; grid-template-columns: repeat(4,1fr);
+  }
+  .stat-block {
+    padding: 36px 40px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .stat-block:last-child { border-right: none; }
+  .stat-n { font-size: 44px; font-weight: 800; color: var(--gold); letter-spacing: -0.03em; line-height: 1; }
+  .stat-l { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 400; }
+
+  /* ABOUT SPLIT */
+  .about-split {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .about-left {
+    background: var(--slate);
+    padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .pill-tag {
+    display: inline-block;
+    background: rgba(201,164,90,0.2); color: var(--gold);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 28px;
+  }
+  .about-left h2 {
+    font-size: clamp(32px,3.5vw,48px); font-weight: 700; color: #fff;
+    letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px;
+  }
+  .about-left h2 em { color: var(--gold); font-style: normal; }
+  .about-left p { color: rgba(255,255,255,0.65); line-height: 1.8; font-size: 15px; font-weight: 300; margin-bottom: 36px; }
+  .icon-row { display: flex; gap: 24px; margin-bottom: 36px; }
+  .icon-chip {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.06); padding: 10px 16px; border-radius: 8px;
+  }
+  .icon-chip svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 2; }
+  .icon-chip span { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
+  .btn-light { background: #fff; color: var(--slate); padding: 13px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-block; transition: background .2s; }
+  .btn-light:hover { background: var(--cream); }
+
+  .about-right {
+    background: var(--cream); padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center; gap: 32px;
+  }
+  .about-right h3 { font-size: 22px; font-weight: 700; color: var(--slate); letter-spacing: -0.02em; margin-bottom: 32px; }
+  .feature-item { display: flex; gap: 20px; align-items: flex-start; }
+  .feature-num {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--burgundy); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; color: #fff;
+  }
+  .feature-text strong { display: block; font-size: 15px; font-weight: 600; color: var(--slate); margin-bottom: 4px; }
+  .feature-text p { font-size: 13px; color: var(--mid); line-height: 1.6; }
+
+  /* PROGRAMS */
+  .programs { padding: 90px 64px; background: #fff; }
+  .programs-header { margin-bottom: 56px; }
+  .programs-header .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--burgundy); margin-bottom: 12px; }
+  .programs-header h2 { font-size: clamp(32px,4vw,52px); font-weight: 800; color: var(--dark); letter-spacing: -0.03em; }
+  .programs-header h2 span { color: var(--burgundy); }
+  .programs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .program-card {
+    border-radius: 14px; overflow: hidden;
+    position: relative; min-height: 280px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px 24px; cursor: pointer;
+    transition: transform .25s;
+  }
+  .program-card:hover { transform: scale(1.02); }
+  .program-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    z-index: 1;
+  }
+  .pc-1 { background: linear-gradient(135deg, #454a58 0%, #6b7080 100%); }
+  .pc-2 { background: linear-gradient(135deg, #9c3e46 0%, #7a2f35 100%); }
+  .pc-3 { background: linear-gradient(135deg, #3d4255 0%, #454a58 100%); }
+  .pc-4 { background: linear-gradient(135deg, #6b3030 0%, #9c3e46 100%); }
+  .program-card-inner { position: relative; z-index: 2; }
+  .program-grade { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .program-card h3 { font-size: 22px; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .program-card p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+  /* NEWS STRIP */
+  .news-strip { background: var(--cream); padding: 80px 64px; }
+  .ns-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+  .ns-header h2 { font-size: clamp(26px,3vw,38px); font-weight: 800; color: var(--dark); letter-spacing: -0.02em; }
+  .ns-header a { font-size: 14px; font-weight: 600; color: var(--burgundy); text-decoration: none; border-bottom: 1px solid var(--burgundy); padding-bottom: 2px; }
+  .news-list { display: flex; flex-direction: column; gap: 0; }
+  .news-item {
+    display: grid; grid-template-columns: 80px 1fr auto;
+    gap: 28px; align-items: center;
+    padding: 24px 0; border-bottom: 1px solid rgba(69,74,88,0.1);
+    text-decoration: none; transition: background .15s;
+    cursor: pointer;
+  }
+  .news-item:hover .news-item-title { color: var(--burgundy); }
+  .news-item-date { font-size: 12px; font-weight: 600; color: var(--mid); text-align: center; }
+  .news-item-date .day { font-size: 28px; font-weight: 800; color: var(--slate); line-height: 1; display: block; }
+  .news-item-tag { display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--burgundy); background: rgba(156,62,70,0.1); padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; }
+  .news-item-title { font-size: 16px; font-weight: 600; color: var(--dark); letter-spacing: -0.01em; transition: color .2s; }
+  .news-item-arrow { font-size: 20px; color: var(--mid); }
+
+  /* ADMISSIONS BANNER */
+  .admissions-banner {
+    background: var(--burgundy);
+    padding: 80px 64px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    flex-wrap: wrap;
+  }
+  .ab-left { max-width: 600px; }
+  .ab-left .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
+  .ab-left h2 { font-size: clamp(30px,4vw,52px); font-weight: 800; color: #fff; letter-spacing: -0.03em; line-height: 1.05; }
+  .ab-left h2 span { color: var(--gold); }
+  .ab-right { display: flex; gap: 16px; align-items: center; }
+  .btn-white { background: #fff; color: var(--burgundy); padding: 16px 36px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; transition: transform .15s, box-shadow .2s; }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  .btn-outline-white { border: 2px solid rgba(255,255,255,0.4); color: #fff; padding: 15px 28px; border-radius: 10px; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color .2s; }
+  .btn-outline-white:hover { border-color: #fff; }
+
+  /* FOOTER */
+  footer { background: var(--dark); color: rgba(255,255,255,0.55); padding: 60px 64px 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px; }
+  .f-brand-name { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .f-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .f-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color .2s; }
+  .f-col a:hover { color: #fff; }
+  .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; }
+  .design-badge { background: var(--burgundy); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; letter-spacing: 0.06em; }
+
+  @keyframes heroIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-badge { animation: heroIn .6s ease .2s both; }
+  .hero-h1 { animation: heroIn .7s ease .35s both; }
+  .hero-sub { animation: heroIn .6s ease .5s both; }
+  .hero-actions { animation: heroIn .6s ease .65s both; }
+
+  <br>
+  nav.scrolled { background: rgba(26,28,34,0.96); backdrop-filter: blur(16px); }
+</style>
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+</head>
+<body>
+
+<!-- MOCKUP BANNER -->
+<div style="background:#1a1f3c;padding:10px 24px;display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-size:13px;line-height:1.4;position:relative;z-index:9999;">
+  <span style="color:#f5a623;font-size:16px;flex-shrink:0;">⚡</span>
+  <span style="color:#f5a623;font-weight:700;flex-shrink:0;">Design Mockup</span>
+  <span style="color:rgba(255,255,255,0.5);margin:0 4px;">—</span>
+  <span style="color:rgba(255,255,255,0.85);">This is a proposed redesign concept for Saint Andrew Catholic School, prepared by J &amp; K Design (John Girshovich &nbsp;·&nbsp; <a href="mailto:jgirsh@comporium.net" style="color:rgba(255,255,255,0.65);text-decoration:underline;">jgirsh@comporium.net</a>)</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="https://www.standrewscatholicschool.com/wp-content/themes/standrew2011/images/header_logo.png" alt="Saint Andrew Catholic School Logo">
+  </a>
+  <ul class="nav-menu">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Academics</a></li>
+    <li><a href="#">Admissions</a></li>
+    <li><a href="#">Student Life</a></li>
+    <li><a href="#">Athletics</a></li>
+    <li><a href="#">Parents</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="nav-login">Login</a>
+    <a href="#" class="nav-apply">Apply Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-cross">✝</div>
+  <div class="hero-content">
+    <div class="hero-badge">Archdiocese of Miami · Grades K3–8</div>
+    <h1 class="hero-h1">
+      LEAD<br>SERVE<br><span class="accent">Believe.</span>
+    </h1>
+    <p class="hero-sub">Saint Andrew Catholic School has been forming young leaders in faith and scholarship since 1957. Now enrolling for 2026–27.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-hero-primary">Explore Admissions →</a>
+      <a href="#" class="btn-hero-secondary"><span class="play-icon"></span>Watch Our Story</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">Scroll</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-ribbon">
+  <div class="stat-block"><div class="stat-n">65+</div><div class="stat-l">Years of Excellence</div></div>
+  <div class="stat-block"><div class="stat-n">K3–8</div><div class="stat-l">Grade Levels</div></div>
+  <div class="stat-block"><div class="stat-n">100%</div><div class="stat-l">Faith-Integrated</div></div>
+  <div class="stat-block"><div class="stat-n">Miami</div><div class="stat-l">Heart of Our Community</div></div>
+</div>
+
+<!-- ABOUT SPLIT -->
+<div class="about-split">
+  <div class="about-left">
+    <div class="pill-tag">Who We Are</div>
+    <h2>Faith. <em>Knowledge.</em> Character.</h2>
+    <p>As part of the Saint Andrew Parish community, we nurture the whole child — spiritually, academically, and morally — preparing them to lead with purpose and serve with love.</p>
+    <div class="icon-row">
+      <div class="icon-chip"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg><span>Faith-Based</span></div>
+      <div class="icon-chip"><svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg><span>Rigorous Academics</span></div>
+    </div>
+    <a href="#" class="btn-light">Learn Our Story →</a>
+  </div>
+  <div class="about-right">
+    <h3>Why Families Choose Saint Andrew</h3>
+    <div class="feature-item">
+      <div class="feature-num">01</div>
+      <div class="feature-text"><strong>Spiritual Formation at the Core</strong><p>Daily prayer, Mass, and Catholic values woven into every subject and activity.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">02</div>
+      <div class="feature-text"><strong>Academic Excellence from Preschool</strong><p>A challenging, standards-based curriculum with dedicated teachers from K3 through Grade 8.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">03</div>
+      <div class="feature-text"><strong>A True Parish Community</strong><p>Families, faculty, and faith united — Saint Andrew is more than a school, it's a home.</p></div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">04</div>
+      <div class="feature-text"><strong>Athletics &amp; Special Programs</strong><p>Competitive sports, arts, and enrichment programs that develop the whole child.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="programs-header">
+    <div class="eyebrow">Academics</div>
+    <h2>Education for Every <span>Stage</span></h2>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card pc-1">
+      <div class="program-card-inner">
+        <div class="program-grade">Ages 3–4</div>
+        <h3>Preschool</h3>
+        <p>Playful discovery grounded in faith and early learning foundations.</p>
+      </div>
+    </div>
+    <div class="program-card pc-2">
+      <div class="program-card-inner">
+        <div class="program-grade">Grades K–3</div>
+        <h3>Lower School</h3>
+        <p>Building strong readers, thinkers, and believers from the start.</p>
+      </div>
+    </div>
+    <div class="program-card pc-3">
+      <div class="program-card-inner">
+        <div class="program-grade">Grades 4–6</div>
+        <h3>Middle Grades</h3>
+        <p>Expanding horizons through STEM, arts, and service learning.</p>
+      </div>
+    </div>
+    <div class="program-card pc-4">
+      <div class="program-card-inner">
+        <div class="program-grade">Grades 7–8</div>
+        <h3>Upper School</h3>
+        <p>Preparing for high school with leadership, character, and scholarship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-strip">
+  <div class="ns-header">
+    <h2>Latest News</h2>
+    <a href="#">All Announcements →</a>
+  </div>
+  <div class="news-list">
+    <div class="news-item">
+      <div class="news-item-date"><span class="day">15</span>Jan 2026</div>
+      <div>
+        <div class="news-item-tag">Admissions</div>
+        <div class="news-item-title">Registration Now Open for the 2026–27 School Year — Grades K3–8</div>
+      </div>
+      <div class="news-item-arrow">→</div>
+    </div>
+    <div class="news-item">
+      <div class="news-item-date"><span class="day">01</span>Apr 2026</div>
+      <div>
+        <div class="news-item-tag">Safety</div>
+        <div class="news-item-title">April is Child Abuse Prevention Month — Resources for Our Community</div>
+      </div>
+      <div class="news-item-arrow">→</div>
+    </div>
+    <div class="news-item">
+      <div class="news-item-date"><span class="day">10</span>Feb 2026</div>
+      <div>
+        <div class="news-item-tag">Community</div>
+        <div class="news-item-title">Friends &amp; Family Referral Program: Earn Tuition Incentives</div>
+      </div>
+      <div class="news-item-arrow">→</div>
+    </div>
+    <div class="news-item">
+      <div class="news-item-date"><span class="day">05</span>Mar 2026</div>
+      <div>
+        <div class="news-item-tag">Parish</div>
+        <div class="news-item-title">Saint Andrew Church Launches New eGiving Program for the Parish</div>
+      </div>
+      <div class="news-item-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS BANNER -->
+<div class="admissions-banner">
+  <div class="ab-left">
+    <div class="eyebrow">Enrollment 2026–27</div>
+    <h2>Your Child Belongs at <span>Saint Andrew.</span></h2>
+  </div>
+  <div class="ab-right">
+    <a href="#" class="btn-white">Start Application</a>
+    <a href="#" class="btn-outline-white">Schedule a Tour</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="f-brand-name">Saint Andrew Catholic School</div>
+      <p style="font-size:13px;line-height:1.7;margin-bottom:16px;">A ministry of Saint Andrew Catholic Parish, serving the Miami community with excellence since 1957.</p>
+      <p style="font-size:12px;">1075 NW 111th Ave, Miami, FL 33172<br>(305) 221-3063</p>
+    </div>
+    <div class="f-col">
+      <h4>School</h4>
+      <a href="#">About Us</a>
+      <a href="#">Mission</a>
+      <a href="#">Faculty</a>
+      <a href="#">Parish</a>
+    </div>
+    <div class="f-col">
+      <h4>Programs</h4>
+      <a href="#">Preschool</a>
+      <a href="#">Elementary</a>
+      <a href="#">Middle School</a>
+      <a href="#">Athletics</a>
+    </div>
+    <div class="f-col">
+      <h4>Family</h4>
+      <a href="#">Parent Portal</a>
+      <a href="#">Calendars</a>
+      <a href="#">Lunch Menu</a>
+      <a href="#">Supply Lists</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Saint Andrew Catholic School · Archdiocese of Miami</span>
+    <span class="design-badge">Design Concept 2 — Bold & Modern</span>
+  </div>
+</footer>
+
+</body>
+</html>
